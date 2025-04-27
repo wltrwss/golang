@@ -10,7 +10,7 @@ func main() {
 	var sum int = 0
 	var numOne, numTwo int = 0, 0
 
-	fmt.Println("\n\t\t=СОДЕРЖИМОЕ МАССИВА ARR=\t\t\n")
+	fmt.Print("\n\t\t=СОДЕРЖИМОЕ МАССИВА ARR=\t\t\n")
 
 	for index, value := range arr {
 		value = rand.Intn(100)

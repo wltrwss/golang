@@ -6,5 +6,5 @@ import (
 
 func main() {
 	const darkRed = "dark red"
-	fmt.Println(color)
+	fmt.Println(darkRed)
 }
