@@ -87,7 +87,6 @@ func (a *Account) Withdraw() {
 func (a *Account) PrintAccount() {
 	fmt.Printf("\nВладелец счета: %s\n", a.Owner)
 	fmt.Printf("Баланс: %.2f\n", a.Balance)
-	pause()
 }
 
 func handlePanic(retryFunc func()) {
