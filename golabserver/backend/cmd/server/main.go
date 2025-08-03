@@ -7,7 +7,7 @@ import (
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	// w - это объект, в который мы пишем ответ клиенту.
-	// r - это объект с данным запроса(метод, заголовк, URL и тд.)
+	// r - это объект с данными запроса(метод, заголовк, URL и тд.)
 	fmt.Println(w, "Hello, World!")
 }
 
