@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request Box</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    @font-face {
+      font-family: 'JetBrains Mono Medium';
+      src: url('../fonts/JetBrainsMono-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+    }
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'JetBrains Mono Medium', monospace;
+    }
+
+    .container {
+      max-width: 1223px;
+      margin: 0 auto;
+      padding: 22px clamp(16px, 5vw, 120px);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .logo {
+      background-color: black;
+      padding: 4px 10px;
+      width: 97px;
+      height: 62px;
+    }
+
+    .logo-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .version {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      max-width: 1018px;
+      display: block;
+    }
+
+    .section {
+      margin-top: 60px;
+    }
+
+    .section-title {
+      font-size: clamp(18px, 3.5vw, 22px);
+      font-weight: normal;
+      margin-bottom: 12px;
+      white-space: pre-wrap;
+    }
+
+    .input-box {
+      font-family: 'JetBrains Mono Medium', monospace;
+      font-weight: 500;
+      background-color: #d9d9d9;
+      border: none;
+      padding: 0 10px;
+      width: 100%;
+    }
+
+    textarea.input-box {
+      width: 100%;
+      min-height: 100px;
+      padding: 10px;
+      background-color: #d9d9d9;
+      border: none;
+      resize: vertical; /* можно менять высоту вручную, но не ширину */
+      overflow-x: hidden; /* запрещаем горизонтальный скролл */
+      white-space: pre-wrap; /* сохраняем переносы строк и пробелы */
+      word-wrap: break-word; /* переносим длинные слова */
+      font-family: 'JetBrains Mono Medium', monospace;
+      font-weight: 500;
+      line-height: 1.4;
+      min-height: 400px;
+    }
+
+    @media (max-width: 600px) {
+      .input-box {
+      height: 36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <img src="./assets/logo.png" alt="Request Box Logo" class="logo-img" />
+      </div>
+      <div class="version">version: 1.0</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">//====YOUR API REQUEST============================//</div>
+      <textarea id="request-input" class="input-box" placeholder="ВНИМАНИЕ! 
+Запрос необходимо вводить с соблюдением переноса строки.
+Запросы в одну строку обрабатываться не будут!"></textarea>
+
+      <button onclick="showValue()">ОТПРАВИТЬ</button>
+
+      <script>
+        function showValue() {
+          const value = document.getElementById("request-input").value;
+          document.getElementById("response-output").textContent = JSON.stringify(value);
+          console.log(value);
+        }
+      </script>
+    </div>
+
+
+    
+    <div class="section">
+      <div class="section-title">//====RESULT======================================//</div>
+      <textarea id="response-output" class="input-box" rows="10" readonly placeholder="Результат запроса..."></textarea>
+    </div>
+
+  </div>
+</body>
+
+</html>
