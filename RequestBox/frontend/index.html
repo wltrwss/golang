@@ -14,7 +14,7 @@
     }
     @font-face {
       font-family: 'JetBrains Mono Medium';
-      src: url('../fonts/JetBrainsMono-Medium.ttf') format('truetype');
+      src: url('./fonts/JetBrainsMonoNL-Regular.ttf') format('truetype');
       font-weight: 500;
       font-style: normal;
     }
@@ -118,27 +118,38 @@
 
     <div class="section">
       <div class="section-title">//====YOUR API REQUEST============================//</div>
-      <textarea id="request-input" class="input-box" placeholder="ВНИМАНИЕ! 
-Запрос необходимо вводить с соблюдением переноса строки.
-Запросы в одну строку обрабатываться не будут!"></textarea>
-
-      <button onclick="showValue()">ОТПРАВИТЬ</button>
-
-      <script>
-        function showValue() {
-          const value = document.getElementById("request-input").value;
-          document.getElementById("response-output").textContent = JSON.stringify(value);
-          console.log(value);
-        }
-      </script>
+      <textarea id="request-input" class="input-box" placeholder=""></textarea>
+      <button onclick="sendValue()">ОТПРАВИТЬ</button>
     </div>
 
-
-    
     <div class="section">
       <div class="section-title">//====RESULT======================================//</div>
       <textarea id="response-output" class="input-box" rows="10" readonly placeholder="Результат запроса..."></textarea>
     </div>
+
+    <script>
+      function sendValue() {
+        const input = document.getElementById("request-input").value;
+        const outputBox = document.getElementById("response-output");
+
+        // Пример отправки запроса (здесь просто имитация)
+        // Тут подставь свой fetch или обработку
+        fetch("/stringHandle", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ request: input })
+        })
+        .then(response => response.json())
+        .then(data => {
+          outputBox.value = JSON.stringify(data, null, 2); // красиво форматируем JSON
+        })
+        .catch(error => {
+          outputBox.value = "Ошибка: " + error.message;
+        });
+      }
+    </script>
 
   </div>
 </body>

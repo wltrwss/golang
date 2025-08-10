@@ -2,26 +2,11 @@ package main
 
 import (
 	"fmt"
-	//"syscall/js"
 )
 
 var userRequest string
 
-/*
-func receiveInput(this js.Value, args []js.Value) any {
-	if len(args) < 1 {
-		println("Нет аргументов")
-		return nil
-	}
-	userRequest = args[0].String()
-	fmt.Println("Получено из JS:", userRequest)
-	return nil
-}
-*/
-
 func main() {
-	//js.Global().Set("receiveInput", js.FuncOf(receiveInput))
-
 	strUserRequest := `POST /api/products HTTP/1.1
 Host: example.com
 Content-Type: application/json
@@ -187,13 +172,9 @@ Content-Length: 31
 			}
 		}
 
-
-
-		
 	}
-
-	//select {}
 }
+
 /*
 ПРИМЕР ЗАПРОСА
 POST /api/products HTTP/1.1\n
@@ -207,7 +188,7 @@ Content-Length: 31
   "name": "Box",
   "price": 100
 }
-	
+
 ПРИНАДЛЕЖНОСТЬ К ГРУППЕ ЗАГЛАВНЫХ БУКВ
 for i := 65; i <= 90; i++ {
     fmt.Printf("%c ", i)
